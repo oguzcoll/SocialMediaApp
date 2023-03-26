@@ -2,6 +2,7 @@ import "./register.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [inputs, setInputs] = useState({
@@ -15,16 +16,17 @@ function Register() {
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
+  const navigate = useNavigate();
   const handleClick = async (e) => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:8800/api/auth/register", inputs);
+      navigate("/login");
     } catch (error) {
       setErr(error.response.data);
     }
   };
-  console.log(err);
+
   return (
     <div className="register">
       <div className="card">

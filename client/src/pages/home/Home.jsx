@@ -1,4 +1,5 @@
 import Posts from "../../components/posts/Posts";
+import Share from "../../components/share/Share";
 import Stories from "../../components/stories/Strories";
 import "./home.scss";
 
@@ -6,6 +7,7 @@ function Home() {
   return (
     <div className="home">
       <Stories />
+      <Share />
       <Posts />
     </div>
   );

@@ -54,7 +54,7 @@ export const login = (req, res) => {
     const { password, ...others } = data[0];
 
     res
-      .cookie("accesToken", token, {
+      .cookie("accessToken", token, {
         httpOnly: true,
       })
       .status(200)
